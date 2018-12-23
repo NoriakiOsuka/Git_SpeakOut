@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="common_header">
+      <div>メニュー</div>
+      <div>検索</div>
+      <h2>Speak Out!</h2>
+      <h2>マイページ</h2>
+      <h2>新規投稿</h2>
+      <h2>違反告知</h2>
+    </div>
+    <div class="container">
+      <%= bootstrap_flash %>
+      <%= yield %>
+    </div>
+    <footer class='row text-center'>
+        <p>(C) SpeakOut 2018</p>
+    </footer>
   </body>
 </html>

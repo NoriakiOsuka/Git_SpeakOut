@@ -67,3 +67,8 @@ gem 'hirb'
 gem 'hirb-unicode'
 gem 'devise'
 gem 'kaminari'
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-material-design', '0.1.4'
+gem 'jquery-rails'
+gem "font-awesome-rails"
