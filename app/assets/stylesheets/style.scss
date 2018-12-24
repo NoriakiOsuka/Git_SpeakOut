@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body,html {
+  height: 100%;
+  background-color: #EEEEEE;
+}
+
+body {
+  padding-top: 60px;
+}
+
+h1,h2,h3,h4,h5,h6,body {
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 14px;
+  color: white;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.clearfix:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.common_header {
+    position: fixed;
+    height: 50px;
+    background: #221f20;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1999;
+    width: auto;
+    min-width: 800px;
+    margin: auto;
+}
+
+.menu{
+  float: left;
+  width: 100px;
+  margin: 13px 0px 0px 10px;
+}
+.search{
+  float: left;
+  width: 100px;
+  margin: 13px 0px 0px 0px;
+}
+
+.header_title{
+  float: left;
+  width: 200px;
+  margin: 13px 0px 0px 430px;
+  font-size: 17px;
+}
+
+.header_mypage{
+  float: left;
+  width: 100px;
+  margin: 13px 0px 0px 140px;
+}
+
+.post{
+  float: left;
+  width: 80px;
+  margin: 13px 0px 0px 20px;
+  color: white;
+}
+
+.header_link{
+  float: right;
+  width: 120px;
+  margin: 13px 0px 0px 0px;
+  color: white;
+}
+
+.violation{
+  float: right;
+  width: 80px;
+  margin: 13px 0px 0px 0px;
+}
+
+.container {
+  clear: both;
+  min-height: 800px;
+}
+
+.footer{
+  text-align: center;
+  color:#000000;
+  margin: auto ;
+}
+
+.letslogin{
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 100px;
+  line-height: 20px;
+}
+
+.login{
+  font-size: 17px;
+  color: #000077;
+}
+
+.logintag{
+  line-height: 3;
+  font-size: 17px;
+  color: #000077;
+}
+
+.logintag:hover{
+  opacity: 0.5;
+}
+
+.login_message{
+  width: 200px;
+  margin: 0 auto;
+  padding-top: 40px;
+  line-height: 2;
+}
+
+.speakindex{
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.speakindex_p{
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 14px;
+  color: #221f20;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+}

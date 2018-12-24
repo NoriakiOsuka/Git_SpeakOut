@@ -1,0 +1,18 @@
+<% if st_user_signed_in? %>  
+  <div class="posting_form">
+    <header class="posting_header">
+      <!--<div class="posting_image icon_image" style="background-image: url(< rails_blob_path( current_user.image) );"></div>-->
+      <div class="posting_user_info">
+        <%= current_st_user.nickname %>さんの投稿
+      </div>
+    </header>
+    <%= form_for(@speak) do |f| %>
+      <%= f.select :field,[["今週のテーマ","今週のテーマ"],["学校・地域","学校・地域"],["趣味","趣味"],["勉強","勉強"],["読書","読書"],["フリー","フリー"]], placeholder: "選択してください" %>
+      <%= f.text_field :subject, placeholder: "題名を記入してください" %>
+      <%= f.text_field :text, placeholder: "本文" %>
+      <%= f.submit "投稿する" %>
+    <% end %>
+  </div>
+<% else %>
+      まずはユーザー登録をお願いします！<%= link_to "トップページ", root_path %><%= link_to "ユーザー登録",new_ad_user_registration_path %>
+<% end %>

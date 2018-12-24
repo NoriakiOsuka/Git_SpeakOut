@@ -10,22 +10,24 @@
   </head>
 
   <body>
-    <div class="common_header">
-      <div>メニュー</div>
-      <div>検索</div>
-      <h2>Speak Out!</h2>
-      <h2>マイページ</h2>
-      <h2>新規投稿</h2>
-      <h2>ログアウト</h2>
-      <li><%= link_to "ログアウト", destroy_ad_user_session_path, method: :delete %></li>
-      <li><%= link_to "ログアウト", destroy_st_user_session_path, method: :delete %></li>
-      <h2>違反告知</h2>
+    <div class="common_header clearfix">
+      <div class="menu">メニュー</div>
+      <div class="search">検索</div>
+      <h2 class= "header_title"><%= link_to "Speak Out!",root_path,:style=>"color:white;" %></h2>
+      <h2 class= "header_mypage">マイページ</h2>
+      <a class="post" href="/speaks/new">投稿する</a>
+      <% if ad_user_signed_in? %>
+      <p class="header_link"><%= link_to "ログアウト", destroy_ad_user_session_path, method: :delete,:style=>"color:white;" %></p>
+      <% elsif st_user_signed_in? %>
+      <p class="header_link"><%= link_to "ログアウト", destroy_st_user_session_path, method: :delete,:style=>"color:white;" %></p>
+      <% end %>
+      <h2 class="violation">違反告知</h2>
     </div>
     <div class="container">
       <%= bootstrap_flash %>
       <%= yield %>
     </div>
-    <footer class='row text-center'>
+    <footer class='footer'>
         <p>(C) SpeakOut 2018</p>
     </footer>
   </body>

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :ad_users,　only: [:show, :edit, :update]
   resources :st_users,　only: [:show, :edit, :update]
+  resources :speaks
 end

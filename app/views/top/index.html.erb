@@ -1,1 +1,17 @@
-ここに色々設置：プロフィール、新着Output、過去の投稿、ステータス等
+<div class= "main contents">
+  <% if ad_user_signed_in? %>
+    ここに色々設置：プロフィール、新着Output、過去の評価した履歴
+     <%= render @speaks %>
+   <% elsif st_user_signed_in? %>
+    ここに色々設置：プロフィール、他の人のOutput、過去の投稿、ステータス等
+     <%= render @speaks %>
+   <% else %>
+   <div class="letslogin">
+     <h1 class="login">ログインして始めましょう！</h1>
+      <p class="logintag"><%= link_to "生徒（投稿者）ログイン",new_st_user_session_path %></p>
+      <p class="logintag"><%= link_to "生徒（投稿者）新規登録",new_st_user_registration_path %></p>
+      <p class="logintag"><%= link_to "評価者ログイン",new_ad_user_session_path %></p>
+      <p class="logintag"><%= link_to "評価者新規登録",new_ad_user_registration_path %></p>
+    <% end %>
+   </div>
+</div>
