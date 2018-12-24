@@ -1,9 +1,8 @@
-<div class= "main contents">
+<div class= "main_contents">
   <% if ad_user_signed_in? %>
     ここに色々設置：プロフィール、新着Output、過去の評価した履歴
      <%= render @speaks %>
    <% elsif st_user_signed_in? %>
-    ここに色々設置：プロフィール、他の人のOutput、過去の投稿、ステータス等
      <%= render @speaks %>
    <% else %>
    <div class="letslogin">
@@ -15,3 +14,9 @@
     <% end %>
    </div>
 </div>
+
+
+<aside class="myspeak">
+  <div>
+  </div>    
+</aside>

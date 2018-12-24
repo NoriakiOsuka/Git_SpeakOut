@@ -89,8 +89,8 @@ a {
 }
 
 .container {
-  clear: both;
   min-height: 800px;
+  width: auto;
 }
 
 .footer{
@@ -128,12 +128,21 @@ a {
   line-height: 2;
 }
 
+.index_wrapper{
+  width: 800px;
+  margin: 0 auto;
+}
+
 .speakindex{
-  width: 300px;
+  width: 360px;
   margin: 0 auto;
   padding: 10px 10px 10px 10px;
   background-color: white;
   margin-top: 20px;
+  margin-left: 10px;
+  height: 400px;
+  float: left;
+  overflow: hidden;
 }
 
 .speakindex_p{
@@ -142,4 +151,22 @@ a {
   font-size: 14px;
   color: #221f20;
   font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+}
+
+.newspeak{
+  width: 400px;
+  min-height: 400px;
+  margin: 0 auto;
+}
+
+.myspeak{
+  min-height: 800px;
+  width: 280px;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.main_contents{
+  width: auto;
+  height: auto;
 }
