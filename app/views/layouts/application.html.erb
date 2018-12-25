@@ -14,14 +14,16 @@
       <div class="menu">メニュー</div>
       <div class="search">検索</div>
       <h2 class= "header_title"><%= link_to "Speak Out!",root_path,:style=>"color:white;" %></h2>
-      <h2 class= "header_mypage">マイページ</h2>
-      <a class="post" href="/speaks/new">投稿する</a>
-      <% if ad_user_signed_in? %>
-      <p class="header_link"><%= link_to "ログアウト", destroy_ad_user_session_path, method: :delete,:style=>"color:white;" %></p>
-      <% elsif st_user_signed_in? %>
-      <p class="header_link"><%= link_to "ログアウト", destroy_st_user_session_path, method: :delete,:style=>"color:white;" %></p>
-      <% end %>
-      <h2 class="violation">違反告知</h2>
+        <div class="right-box">
+          <h2 class= "header_mypage">マイページ</h2>
+          <a class="post" href="/speaks/new">投稿する</a>
+          <% if ad_user_signed_in? %>
+          <p class="header_link"><%= link_to "ログアウト", destroy_ad_user_session_path, method: :delete,:style=>"color:white;" %></p>
+          <% elsif st_user_signed_in? %>
+          <p class="header_link"><%= link_to "ログアウト", destroy_st_user_session_path, method: :delete,:style=>"color:white;" %></p>
+          <% end %>
+          <h2 class="violation">違反告知</h2>
+        </div>
     </div>
     <div class="container clearfix">
       <%= bootstrap_flash %>

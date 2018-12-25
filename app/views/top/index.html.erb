@@ -1,9 +1,17 @@
-<div class= "main_contents">
+<!--<div class= "main_contents">-->
   <% if ad_user_signed_in? %>
     ここに色々設置：プロフィール、新着Output、過去の評価した履歴
      <%= render @speaks %>
+     
    <% elsif st_user_signed_in? %>
-     <%= render @speaks %>
+     　<div class="index_wrapper">
+         <%= render @speaks %>
+       </div>
+         <aside class="myspeak">
+            <div>
+            </div>    
+         </aside>
+   
    <% else %>
    <div class="letslogin">
      <h1 class="login">ログインして始めましょう！</h1>
@@ -13,10 +21,5 @@
       <p class="logintag"><%= link_to "評価者新規登録",new_ad_user_registration_path %></p>
     <% end %>
    </div>
-</div>
+<!--</div>-->
 
-
-<aside class="myspeak">
-  <div>
-  </div>    
-</aside>

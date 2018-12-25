@@ -8,7 +8,7 @@ body,html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 h1,h2,h3,h4,h5,h6,body {
@@ -45,52 +45,65 @@ a {
 }
 
 .menu{
-  float: left;
+  position: absolute;
+  top: 14px;
+  left: 15px;
   width: 100px;
-  margin: 13px 0px 0px 10px;
+  
 }
 .search{
-  float: left;
+  position: absolute;
   width: 100px;
-  margin: 13px 0px 0px 0px;
+  top: 14px;
+  left: 125px;
 }
 
 .header_title{
-  float: left;
   width: 200px;
-  margin: 13px 0px 0px 430px;
+  margin: 0 auto;
+  margin-top: 14px;
   font-size: 17px;
+}
+
+.right-box{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .header_mypage{
   float: left;
   width: 100px;
-  margin: 13px 0px 0px 140px;
+  margin-top: 14px;
 }
 
 .post{
   float: left;
   width: 80px;
-  margin: 13px 0px 0px 20px;
+  margin-top: 14px;
   color: white;
 }
 
 .header_link{
-  float: right;
+  float: left;
   width: 120px;
-  margin: 13px 0px 0px 0px;
+  margin-top: 14px;
   color: white;
 }
 
 .violation{
-  float: right;
+  float: left;
   width: 80px;
-  margin: 13px 0px 0px 0px;
+  margin-top: 14px;
 }
 
 .container {
+  
   min-height: 800px;
-  width: auto;
+  margin-top: 0px;
+  padding-top: 0px;
+  width: 100%;
 }
 
 .footer{
@@ -129,12 +142,16 @@ a {
 }
 
 .index_wrapper{
-  width: 800px;
-  margin: 0 auto;
+  width: 80%;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-left: 310px;
+  min-height: 800px;
+  overflow: hidden;
 }
 
 .speakindex{
-  width: 360px;
+  width: 310px;
   margin: 0 auto;
   padding: 10px 10px 10px 10px;
   background-color: white;
@@ -157,13 +174,16 @@ a {
   width: 400px;
   min-height: 400px;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .myspeak{
-  min-height: 800px;
-  width: 280px;
+  position: fixed;
+  width: 20%;
   background-color: white;
-  margin-left: 10px;
+  top: 50px;
+  left: 0;
+  bottom: 0;
 }
 
 .main_contents{
