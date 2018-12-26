@@ -8,9 +8,17 @@
     </header>
     <div class="newspeak">
     <%= form_for(@speak) do |f| %>
-      <%= f.select :field,[["今週のテーマ","今週のテーマ"],["学校・地域","学校・地域"],["趣味","趣味"],["勉強","勉強"],["読書","読書"],["フリー","フリー"]], placeholder: "選択してください" %>
-      <%= f.text_field :subject,maxlength:20, placeholder: "題名を記入してください" %>
-      <%= f.text_area :text,maxlength:1500, placeholder: "本文",:style=>"width:400px; min-height: 400px; top: 0;" %>
+      <% if @speak.errors.any? %>
+        <h3>入力した内容にエラーが<%= @speak.errors.count %>件あります</h3>
+         <ul>
+          <% @speak.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+       <% end %>
+      <%= f.select :field,[["",""],["今週のテーマ","今週のテーマ"],["学校・地域","学校・地域"],["趣味","趣味"],["勉強","勉強"],["読書","読書"],["フリー","フリー"]], placeholder: "選択してください" %>
+      <%= f.text_field :subject ,maxlength:20, placeholder: "題名を記入してください" %>
+      <%= f.text_area :text ,maxlength:1500, placeholder: "本文",:style=>"width:400px; min-height: 400px; top: 0;" %>
       <%= f.submit "投稿する" %>
     </div>
     <% end %>

@@ -1,10 +1,20 @@
 
  <div class="speakindex">
-  <p class="speakindex_p">ニックネーム<%= speak.st_user.nickname %></p>
-  <p class="speakindex_p">分野<br><%= speak.field %></p> 
-  <p class="speakindex_p">題名<br><%= speak.subject %></p>
-  <p class="speakindex_p">本文<br><%= speak.text %></p> 
+   <div class ="speak-box">
+     <p class="speakindex_p">ニックネーム : <%= speak.st_user.nickname %> ( <%= speak.st_user.grade %> )</p>
+     <time><%= time_ago_in_words speak.created_at %>前</time>
+     <p class="speakindex_p">分野 :  <%= speak.field %></p> 
+     <p class="speakindex_p">題名 :  <%= speak.subject %></p>
+     <p class="speakindex_p">本文 :<br><%= speak.text %></p> 
+   </div> 
    
+   <div class="speak-reply">
+      <span>コメント<%= speak.comments.count %>件</span>
+      <%= form_tag(new_comment_path, method: :get, class: "question_submit") do %>
+      <%= hidden_field_tag(:speak_id, speak.id) %>
+      <%= submit_tag("コメントする") %>
+    <% end %>
+   </div> 
  </div>
 
 

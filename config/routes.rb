@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :ad_users,　only: [:show, :edit, :update]
   resources :st_users,　only: [:show, :edit, :update]
   resources :speaks
+  resources :comments
 end

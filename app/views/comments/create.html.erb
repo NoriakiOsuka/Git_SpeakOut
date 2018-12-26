@@ -1,0 +1,11 @@
+<div class="contents row">
+  <div class="success">
+    <h3>
+      投稿が完了しました。
+    </h3>
+    <a class="btn" href="/">トップへ戻る</a>
+    <% unless @comment.save %> 
+    <p>コメントは保存されませんでした。すべての項目を入力する必要があります。もう一度やり直してください。</p>
+    <% end %>
+  </div>
+</div>

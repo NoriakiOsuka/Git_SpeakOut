@@ -5,5 +5,16 @@ class StUser < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
   has_many :speaks, ->{ order("created_at DESC") }
-  has_many :ad_users
+  
+  validates :first_name,:family_name,:first_name_kana,:family_name_kana,:school,:grade,:nickname,   presence: true
+  
+  has_one_attached :image
+  
+  def name
+    "#{family_name} #{first_name}"
+  end
+
+  def name_kana
+    "#{family_name_kana} #{first_name_kana}"
+  end
 end

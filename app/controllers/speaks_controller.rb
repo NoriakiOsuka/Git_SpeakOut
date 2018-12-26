@@ -4,7 +4,10 @@ class SpeaksController < ApplicationController
   end
   
   def create
-    Speak.create(create_params)
+    @speak = Speak.create(create_params)
+    unless @speak.save
+    render action: :new
+    end
   end
 
   private

@@ -1,0 +1,24 @@
+<h3 class="call-tex"><span>本文：<br></span><%= @speak.text %></h3>
+<div class="row form">
+  <div class="col-lg-12">
+    <%= form_for(@comment) do |f| %>
+      <% if @comment.errors.any? %>
+        <h3>入力した内容にエラーが<%= @comment.errors.count %>件あります</h3>
+         <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+         </ul>
+       <% end %>
+      
+      <div class="form-group">
+        <%= f.text_area :text, placeholder: "回答を入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
+        <%= f.text_field :log_grade, placeholder: "わかりやすさ（論理的思考）" %>
+        <%= f.text_field :exp_grade, placeholder: "表現力" %>
+        <%= f.text_field :cre_grade, placeholder: "おもしろさ（独創性）" %>
+      </div>
+      <%= f.hidden_field :speak_id %>
+      <%= f.submit "回答する", class:"btn btn-primary withripple"%>
+    <% end %>
+  </div>
+</div>

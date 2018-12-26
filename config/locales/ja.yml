@@ -1,9 +1,28 @@
 ja:
+  
+       
   attributes:
+    text: 本文
+    field: 分野
+    subject: 題名
+    log_grade: わかりやすさ（論理的思考）
+    exp_grade: 表現力
+    cre_grade: おもしろさ（独創性）
     email: メールアドレス
     password: パスワード
     group_id: グループ名
     user: ユーザー
+    nickname: ニックネーム
+    school: 学校名
+    grade: 学年
+    family_name: 名前（姓）
+    first_name: 名前（名）
+    family_name_kana: 姓（カナ）
+    first_name_kana: 名（カナ）
+    
+    occupation: 職業
+    position: 役職
+  
   date:
     abbr_day_names:
     - 日
@@ -127,6 +146,7 @@ ja:
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
       other_than: "は%{count}以外の値にしてください。"
+      
     template:
       body: 次の項目を確認してください。
       header:
@@ -197,3 +217,5 @@ ja:
       long: ! '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
+    
+ 

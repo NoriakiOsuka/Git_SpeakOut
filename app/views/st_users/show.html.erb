@@ -1,0 +1,16 @@
+<div class="user-page">
+  
+  <p><%= @st_user.nickname %>さんのユーザーページです。</p>
+  <h2><%= @st_user.name %><span><%= @st_user.name_kana %></span></h2>
+ 
+   <% if @st_user.image.attached? %>
+     <div class="image" style="background-image: url(<%= rails_blob_path(@st_user.image) %>)"></div>
+  　
+   <% else %>
+   現在アイコンがありません。プロフィール編集画面から登録しましょう♪
+   
+  　
+   <% end %>
+  
+   <p><%= link_to "プロフィール編集", edit_st_user_path(current_st_user) %></p>
+</div>

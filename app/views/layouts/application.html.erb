@@ -15,7 +15,12 @@
       <div class="search">検索</div>
       <h2 class= "header_title"><%= link_to "Speak Out!",root_path,:style=>"color:white;" %></h2>
         <div class="right-box">
-          <h2 class= "header_mypage">マイページ</h2>
+          <% if st_user_signed_in? %>
+            <p class= "header_mypage"><%= link_to "マイページ", st_user_path(current_st_user),:style=>"color:white;" %></p>
+          <% elsif ad_user_signed_in? %>
+            <p class= "header_mypage"><%= link_to "マイページ", ad_user_path(current_ad_user),:style=>"color:white;" %></p>
+          <% else %>
+          <% end %> 
           <a class="post" href="/speaks/new">投稿する</a>
           <% if ad_user_signed_in? %>
           <p class="header_link"><%= link_to "ログアウト", destroy_ad_user_session_path, method: :delete,:style=>"color:white;" %></p>

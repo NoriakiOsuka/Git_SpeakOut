@@ -1,0 +1,7 @@
+<div class="user-page">
+  
+  <p><%= @ad_user.nickname %>さんのユーザーページです。</p>
+  <h2><%= @ad_user.name %><span><%= @ad_user.name_kana %></span></h2>
+  <div class="image" style="background-image: url(<%= rails_blob_path(@ad_user.image) %>) "></div>
+  <p><%= link_to "プロフィール編集", edit_ad_user_path(current_ad_user) %></p>
+</div>
