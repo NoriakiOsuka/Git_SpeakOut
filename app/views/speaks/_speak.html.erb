@@ -1,7 +1,10 @@
 
  <div class="speakindex">
    <div class ="speak-box">
-     <p class="speakindex_p">ニックネーム : <%= speak.st_user.nickname %> ( <%= speak.st_user.grade %> )</p>
+     <div class="myself-box">
+       <p class="trim-image-to-circle" style="background-image: url(<%= rails_blob_path(speak.st_user.image) %>)"></p> 
+       <p class="speakindex_name">ニックネーム : <%= speak.st_user.nickname %> (<%= speak.st_user.grade %>)</p>
+     </div>
      <time><%= time_ago_in_words speak.created_at %>前</time>
      <p class="speakindex_p">分野 :  <%= speak.field %></p> 
      <p class="speakindex_p">題名 :  <%= speak.subject %></p>
