@@ -9,6 +9,10 @@ class SpeaksController < ApplicationController
     render action: :new
     end
   end
+  
+  def show
+    @speak = Speak.find(params[:id])
+  end
 
   private
   def create_params

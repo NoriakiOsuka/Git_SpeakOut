@@ -206,6 +206,14 @@ time{
     margin-top: 0;
 }
 
+.followimage{
+  width:  40px;       /* ※縦横を同値に */
+    height: 40px;       /* ※縦横を同値に */
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    background-position: center center;  /* 横長画像の左上を基準に表示 */
+    display: inline-block;
+}
+
 .speakindex_name{
   position: absolute;
   left: 65px;
@@ -224,7 +232,7 @@ time{
 .speakindex_p{
   line-height: 1.21;
   letter-spacing: 0.15em;
-  
+  width: 295px;
   display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
@@ -293,3 +301,19 @@ time{
     text-align: center;
     margin: 0 auto;
   }
+
+.tablef{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.linkmoji{
+  font-size: 9px;
+  color: #000080;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  border: solid;
+  border-color:#C0C0C0;
+  border-width: 1px;
+  border-radius: 5px;
+}

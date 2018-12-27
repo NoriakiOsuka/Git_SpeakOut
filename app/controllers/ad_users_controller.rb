@@ -4,6 +4,10 @@ class AdUsersController < ApplicationController
   end
   
   def edit
+    @ad_user = AdUser.find(params[:id])
+    unless current_ad_user == @ad_user.id
+    redirect_to (root_path)
+    end
   end
   
   def update

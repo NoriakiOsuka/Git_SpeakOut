@@ -1,5 +1,5 @@
 <div class="user-page">
-  
+
   <p><%= @st_user.nickname %>さんのユーザーページです。</p>
   <h2><%= @st_user.name %><span><%= @st_user.name_kana %></span></h2>
  
@@ -8,9 +8,12 @@
   　
    <% else %>
    現在アイコンがありません。プロフィール編集画面から登録しましょう♪
+     <div class="image"><%= image_tag 'noimage.jpg' %></div>
+  　<% end %>
    
-  　
-   <% end %>
-  
+   <% if current_st_user.id == @st_user.id %>
    <p><%= link_to "プロフィール編集", edit_st_user_path(current_st_user) %></p>
+   <% end %>
+   <%= render 'follow_form' %>
+　 <%= render 'stats' %>
 </div>

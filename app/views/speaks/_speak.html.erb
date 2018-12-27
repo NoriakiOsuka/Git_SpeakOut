@@ -2,13 +2,13 @@
  <div class="speakindex">
    <div class ="speak-box">
      <div class="myself-box">
-       <p class="trim-image-to-circle" style="background-image: url(<%= rails_blob_path(speak.st_user.image) %>)"></p> 
+       <a href="/st_users/<%= "#{speak.st_user.id}" %>"><p class="trim-image-to-circle" style="background-image: url(<%= rails_blob_path(speak.st_user.image) %>)"></p></a> 
        <p class="speakindex_name">ニックネーム : <%= speak.st_user.nickname %> (<%= speak.st_user.grade %>)</p>
      </div>
      <time><%= time_ago_in_words speak.created_at %>前</time>
      <p class="speakindex_p">分野 :  <%= speak.field %></p> 
      <p class="speakindex_p">題名 :  <%= speak.subject %></p>
-     <p class="speakindex_p">本文 :<br><%= speak.text %></p> 
+     <p class="speakindex_p">本文 :<a class="linkmoji" href="/speaks/<%= "#{speak.id}" %>">全文を見る</a><br><%= speak.text %></p> 
    </div> 
    
    <div class="speak-reply">
