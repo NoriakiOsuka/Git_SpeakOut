@@ -1,0 +1,6 @@
+<%= form_for(Crossfollow.find_by(followable_id: current_ad_user.id,followable_type: "ad_user",st_user_id: @st_user.id), html: { method: :delete }) do |f| %>
+  <div><%= f.hidden_field :followable_id %></div>
+   <div><%= f.hidden_field :followable_type %></div>
+   <div><%= f.hidden_field :st_user_id %></div>
+  <%= f.submit "Unfollow", class: "btn btn-large follow-btn" %>
+<% end %>

@@ -1,0 +1,9 @@
+<% @crossfollows.each do |crossfollow| %>
+<table>
+<tr>
+  <td>  <%= AdUser.find(crossfollow.ad_user_id).nickname %> </td>
+  <td><%= link_to '詳細', ad_user_path(AdUser.find(crossfollow.ad_user_id)) %></td>
+</tr>
+
+</table>
+<% end %>

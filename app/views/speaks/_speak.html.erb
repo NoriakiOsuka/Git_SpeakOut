@@ -2,7 +2,11 @@
  <div class="speakindex">
    <div class ="speak-box">
      <div class="myself-box">
+       <% if speak.st_user.image.attached? %>
        <a href="/st_users/<%= "#{speak.st_user.id}" %>"><p class="trim-image-to-circle" style="background-image: url(<%= rails_blob_path(speak.st_user.image) %>)"></p></a> 
+       <% else %>
+       <a href="/st_users/<%= "#{speak.st_user.id}" %>"><img src="noimage.jpg" class="trim-image-to-circle" /></a>
+       <% end %>
        <p class="speakindex_name">ニックネーム : <%= speak.st_user.nickname %> (<%= speak.st_user.grade %>)</p>
      </div>
      <time><%= time_ago_in_words speak.created_at %>前</time>

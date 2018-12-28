@@ -1,0 +1,6 @@
+<%= form_for(current_st_user.crossfollows.build(followable_id: current_st_user.id, followable_type: "st_user",ad_user_id: @ad_user.id) do |f| %>
+  <div><%= f.hidden_field :followable_id %></div>
+   <div><%= f.hidden_field :followable_type %></div>
+   <div><%= f.hidden_field :ad_user_id %></div>
+  <%= f.submit "Follow", class: "btn btn-large btn-primary follow-btn" %>
+<% end %>

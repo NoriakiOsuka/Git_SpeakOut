@@ -9,13 +9,18 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "top#index"
-  resources :ad_users,　only: [:show, :edit, :update]
+  resources :ad_users,　only: [:show, :edit, :update] do
+    member do
+      get :crossfollowing, :crossfollowers
+     end
+  end
   resources :st_users,　only: [:show, :edit, :update] do
     member do
-     get :following, :followers
+     get :following, :followers, :crossfollowing, :crossfollowers
     end
   end
   resources :relationships, only: [:create, :destroy]
+  resources :crossfollows , only: [:create, :destroy]
   resources :speaks
   resources :comments
 end

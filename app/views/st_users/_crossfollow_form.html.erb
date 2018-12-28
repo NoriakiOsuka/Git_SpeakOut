@@ -1,0 +1,10 @@
+<% if ad_user_signed_in? %>  
+    <div id="follow_form">
+      <!--< if current_ad_user.crossfollowing?(@st_user) %>-->
+      <% if Crossfollow.where(followable_id: current_ad_user.id, followable_type: "ad_user", st_user_id: @st_user.id).present? %>
+        <%= render 'crossunfollow' %>
+      <% else %>
+        <%= render 'crossfollow' %>
+      <% end %>
+     </div>
+<% end %>

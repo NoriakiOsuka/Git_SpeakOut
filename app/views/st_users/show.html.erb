@@ -11,9 +11,14 @@
      <div class="image"><%= image_tag 'noimage.jpg' %></div>
   　<% end %>
    
-   <% if current_st_user.id == @st_user.id %>
-   <p><%= link_to "プロフィール編集", edit_st_user_path(current_st_user) %></p>
-   <% end %>
-   <%= render 'follow_form' %>
-　 <%= render 'stats' %>
+   <% if st_user_signed_in? %>
+       <% if current_st_user.id == @st_user.id %>
+       <p><%= link_to "プロフィール編集", edit_st_user_path(current_st_user) %></p>
+       <% end %>
+       
+    <% end %>
+     　 <%= render 'follow_form' %>
+     　 <%= render 'stats' %>
+     　 <%= render 'crossfollow_form' %>
+     　 <%= render 'crossstats' %>
 </div>

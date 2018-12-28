@@ -9,6 +9,7 @@ class StUser < ApplicationRecord
   has_many :followings, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  has_many :crossfollows, as: :followable, dependent: :destroy
   
   validates :first_name,:family_name,:first_name_kana,:family_name_kana,:school,:grade,:nickname,   presence: true
   
@@ -32,6 +33,27 @@ class StUser < ApplicationRecord
 
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
+  end
+  
+  # def crossfollowing?(other_user)
+    
+  #   Crossfollow.find_by(st_user_id: other_user.id)
+  # end
+
+  # def stcrossfollow!(other_user)
+  #   Crossfollow.create!(st_user_id: other_user.id)
+  # end
+  
+  # def adcrossfollow!(other_user)
+  #   Crossfollow.create!(ad_user_id: other_user.id)
+  # end
+
+  def stcrossunfollow!(other_user)
+    Crossfollow.find_by(st_user_id: other_user.id).destroy
+  end  
+    
+  def  adcrossunfollow!(other_user)
+    Crossfollow.find_by(ad_user_id: other_user.id).destroy
   end
   
 end

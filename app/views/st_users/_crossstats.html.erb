@@ -1,0 +1,15 @@
+<% @st_user ||= current_st_user %>
+<div class="stats">
+  <a href="<%= crossfollowing_st_user_path(@st_user) %>">
+    <strong id="following" class="stat">
+      <%= Crossfollow.where(followable_id: @st_user.id,followable_type: "st_user").count %>
+    </strong>
+    人の評価者をフォロー中
+  </a>
+  <a href="<%= crossfollowers_st_user_path(@st_user) %>">
+    <strong id="followers" class="stat">
+      <%= Crossfollow.where(st_user_id: @st_user.id).count %>
+    </strong>
+    人の評価者フォロワー
+  </a>
+</div>

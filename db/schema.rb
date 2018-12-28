@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_022601) do
+ActiveRecord::Schema.define(version: 2018_12_27_100324) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,20 @@ ActiveRecord::Schema.define(version: 2018_12_27_022601) do
     t.integer "speak_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "crossfollows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "followable_id"
+    t.string "followable_type"
+    t.integer "st_user_id"
+    t.integer "ad_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ad_user_id"], name: "index_crossfollows_on_ad_user_id"
+    t.index ["followable_id", "ad_user_id"], name: "index_crossfollows_on_followable_id_and_ad_user_id", unique: true
+    t.index ["followable_id", "st_user_id"], name: "index_crossfollows_on_followable_id_and_st_user_id", unique: true
+    t.index ["followable_id"], name: "index_crossfollows_on_followable_id"
+    t.index ["st_user_id"], name: "index_crossfollows_on_st_user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -3,7 +3,7 @@
   <p><%= @ad_user.nickname %>さんのユーザーページです。</p>
   <h2><%= @ad_user.name %><span><%= @ad_user.name_kana %></span></h2>
   
-   <% if @sd_user.image.attached? %>
+   <% if @ad_user.image.attached? %>
      <div class="image" style="background-image: url(<%= rails_blob_path(@ad_user.image) %>)"></div>
   　
    <% else %>
@@ -11,7 +11,14 @@
      <div class="image"><%= image_tag 'noimage.jpg' %></div>
   　
    <% end %>
-   <% if current_ad_user.id == @ad_user.id %>
-    <p><%= link_to "プロフィール編集", edit_ad_user_path(current_ad_user) %></p>
+   
+   <% if ad_user_signed_in? %>
+    <% if current_ad_user.id == @ad_user.id %>
+     <p><%= link_to "プロフィール編集", edit_ad_user_path(current_ad_user) %></p>
+    <% end %>
    <% end %>
+   
+   <%= render 'crossfollow_form' %>
+　 <%= render 'crossstats' %>
+　 
 </div>

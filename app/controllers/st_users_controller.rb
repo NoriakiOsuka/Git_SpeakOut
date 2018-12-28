@@ -6,7 +6,7 @@ class StUsersController < ApplicationController
   
   def edit
     @st_user = StUser.find(params[:id])
-    unless current_st_user == @st_user.id
+    unless current_st_user.id == @st_user.id
     redirect_to (root_path)
     end
      
@@ -28,6 +28,21 @@ class StUsersController < ApplicationController
     @st_users = @st_user.followers
     render 'show_follower'
   end
+  
+  def crossfollowing
+      @st_user  = StUser.find(params[:id])
+      # @st_users = @st_user.crossfollows
+      @crossfollows = Crossfollow.where(followable_id: @st_user.id)
+      render 'show_crossfollow'
+  end
+
+  def crossfollowers
+    @st_user  = StUser.find(params[:id])
+    # @st_users = @st_user.crossfollows
+    @crossfollows = Crossfollow.where(st_user_id: @st_user.id)
+    render 'show_crossfollower'
+  end
+  
   
   private
   def update_params

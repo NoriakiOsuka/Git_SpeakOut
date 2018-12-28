@@ -5,6 +5,7 @@ class AdUser < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   
   has_many :comments,->{ order("created_at DESC") }
+  has_many :crossfollows, as: :followable, dependent: :destroy
   
   validates :first_name,:family_name,:first_name_kana,:family_name_kana,:occupation,:position,:nickname,   presence: true
   
@@ -17,4 +18,26 @@ class AdUser < ApplicationRecord
   def name_kana
     "#{family_name_kana} #{first_name_kana}"
   end
+  
+  # def crossfollowing?(other_user)
+   
+  #   Crossfollow.find_by(ad_user_id: other_user.id)
+  # end
+
+  # def stcrossfollow!(other_user)
+  #   Crossfollow.create!(st_user_id: other_user.id)
+  # end
+  
+  # def adcrossfollow!(other_user)
+  #   Crossfollow.create!(ad_user_id: other_user.id)
+  # end
+
+  def stcrossunfollow!(other_user)
+    Crossfollow.find_by(st_user_id: other_user.id).destroy
+  end  
+    
+  def  adcrossunfollow!(other_user)
+    Crossfollow.find_by(ad_user_id: other_user.id).destroy
+  end
+  
 end
