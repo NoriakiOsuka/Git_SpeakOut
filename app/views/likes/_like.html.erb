@@ -1,0 +1,57 @@
+<% if ad_user_signed_in? %>
+        
+        <% if speak.adiine?(current_ad_user) %>
+          <span class="like">
+          <%= form_for(speak.likes.find_by(ad_user_id: current_ad_user.id), method: :delete, remote: true) do |f| %>
+            <div><%= hidden_field_tag :speak_id, speak.id %></div>
+            <%= button_tag(type: :submit,class: "buttonround") do %>
+                <%= image_tag("iine.jpeg", class: "iinebutton") %>
+              <% end %>
+             <span><%= speak.likes_count %>件 </span>
+          <% end %>
+          </span>
+          
+        <% else %>
+         <span class="like">
+          <%= form_for(speak.likes.build, remote: true) do |f| %>
+            <div><%= hidden_field_tag :speak_id, speak.id %></div>
+            <%= button_tag(type: :submit,class: "buttonround") do %>
+                <%= image_tag("iine-grey.jpeg", class: "iinebutton") %>
+              <% end %>
+             <span><%= speak.likes_count %>件</span>
+          <% end %>
+          </span>
+        <% end %>
+      
+
+
+<% elsif st_user_signed_in? %>
+    <% if !current_st_user?(speak.st_user) %>
+        <span class="like">
+        <% if speak.stiine?(current_st_user) %>
+          <%= form_for(speak.likes.find_by(st_user_id: current_st_user.id), method: :delete, remote: true) do |f| %>
+           <div><%= hidden_field_tag :speak_id, speak.id %></div>
+            <%= button_tag(type: :submit,class: "buttonround") do %>
+                <%= image_tag("iine.jpeg", class: "iinebutton") %>
+              <% end %>
+             <span><%= speak.likes_count %>件</span>
+          <% end %>
+          </span>
+        <% else %>
+          <span class="like">
+          <%= form_for(speak.likes.build, remote: true) do |f| %>
+            <div><%= hidden_field_tag :speak_id, speak.id %></div>
+            <%= button_tag(type: :submit,class: "buttonround") do %>
+                <%= image_tag("iine-grey.jpeg", class: "iinebutton") %>
+              <% end %>
+             <span><%= speak.likes_count %>件</span>
+           <% end %>
+           </span>
+        <% end %>
+    <% else %>
+        <span class="like">
+          <%= image_tag("iine.jpeg", class: "iinebutton") %>
+          <span><%= speak.likes_count %>件</span>
+        </span>
+    <% end %>
+<% end %>

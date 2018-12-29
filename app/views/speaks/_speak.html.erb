@@ -20,7 +20,9 @@
       <%= form_tag(new_comment_path, method: :get, class: "question_submit") do %>
       <%= hidden_field_tag(:speak_id, speak.id) %>
       <%= submit_tag("コメントする") %>
-    <% end %>
+      <% end %>
+      <%= image_tag("iine.jpeg", class: "small-iinebutton") %>
+      <%= speak.likes_count %>件
    </div> 
  </div>
 

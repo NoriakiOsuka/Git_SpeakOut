@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :crossfollows , only: [:create, :destroy]
-  resources :speaks
+  resources :speaks 
+  resources :likes, only: [:create, :destroy]
+  
   resources :comments
 end

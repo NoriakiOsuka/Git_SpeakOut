@@ -73,3 +73,4 @@ gem 'bootstrap-material-design', '0.1.4'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'mini_magick'
+gem 'counter_culture', '~> 1.8'

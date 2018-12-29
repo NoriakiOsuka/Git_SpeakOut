@@ -6,6 +6,7 @@ class AdUser < ApplicationRecord
   
   has_many :comments,->{ order("created_at DESC") }
   has_many :crossfollows, as: :followable, dependent: :destroy
+  has_many :likes, dependent: :destroy
   
   validates :first_name,:family_name,:first_name_kana,:family_name_kana,:occupation,:position,:nickname,   presence: true
   

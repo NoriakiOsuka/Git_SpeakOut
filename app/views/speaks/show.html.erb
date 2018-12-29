@@ -3,9 +3,16 @@
     <h3><span>投稿</span><%= @speak.text %></h3>
     <div class="group_action panel panel-default">
       <div class="panel-body">
-        
-          <%= link_to '投稿にコメントする', new_comment_path(speak_id: @speak.id) %>
-        
+        　<% if ad_user_signed_in? %>
+            <%= link_to '投稿にコメントする', new_comment_path(speak_id: @speak.id) %>
+        　<% elsif st_user_signed_in? %>
+          　 <% if current_st_user.id != @speak.st_user_id %>
+          　 <%= link_to '投稿にコメントする', new_comment_path(speak_id: @speak.id) %>
+          　 <% end %>
+          <% end %>
+        　<span id="like-of-<%= @speak.id %>">
+        　<%= render 'likes/like', speak: @speak %>
+        　</span>
     <!--  </div>-->
     <!--</div>-->
     <!--< if @question.answers.present? %>-->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_100324) do
+ActiveRecord::Schema.define(version: 2018_12_29_003411) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -87,6 +87,19 @@ ActiveRecord::Schema.define(version: 2018_12_27_100324) do
     t.index ["st_user_id"], name: "index_crossfollows_on_st_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "st_user_id"
+    t.integer "ad_user_id"
+    t.integer "speak_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ad_user_id", "speak_id"], name: "index_likes_on_ad_user_id_and_speak_id", unique: true
+    t.index ["ad_user_id"], name: "index_likes_on_ad_user_id"
+    t.index ["speak_id"], name: "index_likes_on_speak_id"
+    t.index ["st_user_id", "speak_id"], name: "index_likes_on_st_user_id_and_speak_id", unique: true
+    t.index ["st_user_id"], name: "index_likes_on_st_user_id"
+  end
+
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
@@ -104,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_12_27_100324) do
     t.integer "st_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count"
   end
 
   create_table "st_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
