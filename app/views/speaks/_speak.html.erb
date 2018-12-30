@@ -12,17 +12,48 @@
      <time><%= time_ago_in_words speak.created_at %>前</time>
      <p class="speakindex_p">分野 :  <%= speak.field %></p> 
      <p class="speakindex_p">題名 :  <%= speak.subject %></p>
-     <p class="speakindex_p">本文 :<a class="linkmoji" href="/speaks/<%= "#{speak.id}" %>">全文を見る</a><br><%= speak.text %></p> 
+     <p class="speakindex_p">本文 :<a class="linkmoji" href="/speaks/<%= "#{speak.id}" %>">本文とコメントを全て見る</a><br><p class="speaktex"><%= speak.text %></p></p> 
    </div> 
    
    <div class="speak-reply">
       <span>コメント<%= speak.comments.count %>件</span>
-      <%= form_tag(new_comment_path, method: :get, class: "question_submit") do %>
-      <%= hidden_field_tag(:speak_id, speak.id) %>
-      <%= submit_tag("コメントする") %>
-      <% end %>
-      <%= image_tag("iine.jpeg", class: "small-iinebutton") %>
-      <%= speak.likes_count %>件
+        <%= image_tag("iine.jpeg", class: "small-iinebutton") %>
+        <%= speak.likes_count %>件
+        <% if ad_user_signed_in? %>
+          <%= form_tag(new_comment_path, method: :get, class: "question_submit") do %>
+          <%= hidden_field_tag(:speak_id, speak.id) %>
+          <%= submit_tag("コメントする") %>
+          <% end %>
+        <% elsif st_user_signed_in? %>
+          <% unless current_st_user.id == speak.st_user_id %>
+              <%= form_tag(new_comment_path, method: :get, class: "question_submit") do %>
+              <%= hidden_field_tag(:speak_id, speak.id) %>
+              <%= submit_tag("コメントする") %>
+              <% end %>
+          <% end %>
+        <% end %>      
+      <div class="commenter">
+        <span style="font-size: 12px">☑️最新の評価者<br></span>
+          <% if speak.comments.present? %>  
+            <% speak.comments.order('created_at DESC').limit(1).each do |comment| %>
+              <% if comment.ad_user.present? %>
+                <span class="ad_user_retail">　&nbsp;<%= comment.ad_user.nickname %>
+                <%= comment.ad_user.occupation %>
+                <%= comment.ad_user.position %>
+                </span>
+              <% end %>
+            <% end %>
+         <p class="comment-people">☑️コメントをくれた人たち</p>     
+            <% speak.comments.order('created_at DESC').limit(8).each do |comment| %>  
+                  <% if comment.ad_user.present? && comment.ad_user.image.attached?  %>
+                   <span class="small_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.ad_user.image) %>)"></span>
+                  <% end %>
+                  <% if comment.st_user.present? && comment.st_user.image.attached? %>
+                   <span class="small_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.st_user.image) %>)"></span> 
+                  <% end %>
+                <% end %>  
+          <% end %>   
+      </div>
    </div> 
  </div>
 

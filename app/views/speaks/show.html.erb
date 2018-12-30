@@ -1,6 +1,8 @@
 <div class="row form">
+  <a href="/st_users/<%= "#{@speak.st_user.id}" %>"><p class="image" style="background-image: url(<%= rails_blob_path(@speak.st_user.image) %>)"></p></a>
   <div class="col-lg-12">
-    <h3><span>投稿</span><%= @speak.text %></h3>
+    <h3><span><投稿></span><br>ニックネーム　：<%= @speak.st_user.nickname %><br>
+    分野　：<%= @speak.field %><br>題名　：<%= @speak.subject %><br><%= @speak.text %></h3>
     <div class="group_action panel panel-default">
       <div class="panel-body">
         　<% if ad_user_signed_in? %>
@@ -10,18 +12,57 @@
           　 <%= link_to '投稿にコメントする', new_comment_path(speak_id: @speak.id) %>
           　 <% end %>
           <% end %>
-        　<span id="like-of-<%= @speak.id %>">
-        　<%= render 'likes/like', speak: @speak %>
-        　</span>
-    <!--  </div>-->
-    <!--</div>-->
-    <!--< if @question.answers.present? %>-->
-    <!--  <h3><span>A</span>この質問へのコメント</h3>-->
-    <!--   < if @question.answered?(current_user) %>-->
-    <!--    <= render partial: "questions/answer", collection: @answers %>-->
-    <!--  < else %>-->
-    <!--    <h1>※質問に答えると他の人の回答を見ることが出来ます</h1>-->
-    <!--  < end %>-->
-    <!--< end %>-->
+             
+          <% if st_user_signed_in? %>
+              <% if current_st_user.id == @speak.st_user_id %>
+                 <%= link_to '投稿を編集する', edit_speak_path(speak_id: @speak.id) %>
+                 <%= link_to '投稿を削除する', "/speaks/#{@speak.id}", method: :delete %>
+              <% end %>
+          <% end %>
+          
+          　<span id="like-of-<%= @speak.id %>">
+            　<%= render 'likes/like', speak: @speak %>
+          　</span>
+          
+      <div class="speak-comment-index-wrapper">
+        <h3>コメント一覧</h3>
+         <% if @comments.present? %>
+             <% @comments.each do |comment| %>
+              <div class="speak-comment-index-detail">
+                <% if comment.ad_user.present?  %>
+                  <a href="/ad_users/<%= "#{comment.ad_user.id}" %>"><span class="small_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.ad_user.image) %>)"></span></a>
+                  <time><%= time_ago_in_words comment.created_at %>前</time>
+                  <%= comment.ad_user.nickname %>
+                  <%= comment.ad_user.occupation %>
+                  <%= comment.ad_user.position %><br>
+                  <%= comment.text %>
+                  　<% if ad_user_signed_in? %>
+                      <% if current_ad_user.id == comment.ad_user.id %>
+                       <%= link_to "コメント削除","/comments/#{comment.id}",method: :delete %>
+                      <% end %>
+                    <% end %>
+                <% end %>
+                <% if comment.st_user.present? %>
+                  <a href="/st_users/<%= "#{comment.st_user.id}" %>"><span class="small_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.st_user.image) %>)"></span></a> 
+                  <time><%= time_ago_in_words comment.created_at %>前</time>
+                  <%= comment.st_user.nickname %>
+                  <%= comment.st_user.school %>
+                  <%= comment.st_user.grade %><br>
+                  <%= comment.text %>
+                     <% if st_user_signed_in? %>
+                      <% if current_st_user.id == comment.st_user.id %>
+                       <%= link_to "コメント削除","/comments/#{comment.id}",method: :delete %>
+                      <% end %> 
+                     <% end %>
+                <% end %>
+               <% end %>
+              </div>
+         <% end %>  
+      </div>        
+              
+              
+          
+
+   
   </div>
 </div>

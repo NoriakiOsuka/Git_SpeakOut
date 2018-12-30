@@ -1,16 +1,62 @@
 <!--<div class= "main_contents">-->
   <% if ad_user_signed_in? %>
-    ここに色々設置：プロフィール、新着Output、過去の評価した履歴
-     <%= render @speaks %>
-     
-   <% elsif st_user_signed_in? %>
-     　<div class="index_wrapper">
-         <%= render @speaks %>
-       </div>
+    <div class="index_wrapper">
+     <%= render partial: 'speaks/speak', collection: @speaks %>
+     </div>
          <aside class="myspeak">
-            <div>
-            </div>    
+            <div class="follow-situation">
+              <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_ad_user.image) %>)"></p>
+              <div><%= current_ad_user.family_name %>&nbsp;<%= current_ad_user.first_name %></div>
+              <div>ニックネーム：<%= current_ad_user.nickname %></div>
+              <div>職業：<%= current_ad_user.occupation %></div>
+              <div>役職：<%= current_ad_user.position %></div>
+              <div class="follow-number">
+                <span><b><%= Crossfollow.where(followable_id: current_ad_user.id,followable_type: "ad_user").count %></b></span><br>
+                <span><b>フォロー</b></span>
+              </div>
+              <div class="follow-number">
+                <span><b><%= Crossfollow.where(ad_user_id: current_ad_user.id).count %></b></span><br>
+                <span><b>フォロワー</b></span>
+              </div>
+            </div>
+            <div class="new-speak-index">
+             <!--<= render @new_speaks %>  -->
+            </div>
          </aside>
+   <% elsif st_user_signed_in? %>
+     <aside class="myspeak">
+           <div class="st-follow-situation">
+              <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_st_user.image) %>)"></p>
+              <div><%= current_st_user.family_name %>&nbsp;<%= current_st_user.first_name %></div>
+              <div>ニックネーム：<%= current_st_user.nickname %></div>
+              <div>学校：<%= current_st_user.school %></div>
+              <div>学年：<%= current_st_user.grade %></div>
+              <div class="follow-number">
+                <span><b><%= current_st_user.followings.count %></b></span><br>
+                <span><b>フォロー</b></span>
+              </div>
+              <div class="follow-number">
+                <span><b><%= current_st_user.followers.count %></b></span><br>
+                <span><b>フォロワー</b></span>
+              </div><br>
+                <div class="follow-number">
+                <span><b><%= Crossfollow.where(followable_id: current_st_user.id,followable_type: "st_user").count %></b></span><br>
+                <span style="font-size: 11px"><b>評価者フォロー</b></span>
+              </div>
+              <div class="follow-number">
+                <span><b><%= Crossfollow.where(st_user_id: current_st_user.id).count %></b></span><br>
+                <span style="font-size: 11px"><b>評価者フォロワー</b></span>
+              </div>
+            </div>
+            <div class="new-speak-index">
+              <p><新着情報></p>
+             <%= render partial: 'speaks/content', collection: @contents %>  
+            </div>  
+         </aside>
+     <div class="index_wrapper">
+       <%= render partial: 'speaks/speak', collection: @speaks %>
+      </div>
+         
    
    <% else %>
    <div class="letslogin">

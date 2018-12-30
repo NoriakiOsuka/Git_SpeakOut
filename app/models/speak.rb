@@ -1,6 +1,6 @@
 class Speak < ApplicationRecord
   belongs_to  :st_user
-  has_many  :comments
+  has_many  :comments , dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :adiine_users, through: :likes, source: :ad_user
   has_many :stiine_users, through: :likes, source: :st_user

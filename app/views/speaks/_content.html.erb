@@ -1,0 +1,14 @@
+<div class="ns-wrapper">
+  <% if content.st_user.image.attached? %>
+       <a href="/st_users/<%= "#{content.st_user.id}" %>"><p class="trim-image-to-circle" style="background-image: url(<%= rails_blob_path(content.st_user.image) %>)"></p></a> 
+  <% else %>
+       <a href="/st_users/<%= "#{content.st_user.id}" %>"><img src="noimage.jpg" class="trim-image-to-circle" /></a>
+  <% end %>
+       <p class="speakindex_name">ニックネーム : <%= content.st_user.nickname %> (<%= content.st_user.grade %>)</p>
+
+     <time><%= time_ago_in_words content.created_at %>前</time>
+     <p class="speakindex_p">分野 :  <%= content.field %></p> 
+     <p class="speakindex_p">題名 :  <%= content.subject %></p>
+     <p class="speakindex_p">本文 :<a class="linkmoji" href="/speaks/<%= "#{content.id}" %>">全て見る</a><br>
+     <p class="speaktex"><%= content.text %></p></p>
+</div>  

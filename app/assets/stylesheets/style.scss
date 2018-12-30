@@ -150,11 +150,13 @@ time{
 
 .index_wrapper{
   width: 80%;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
-  margin-left: 310px;
+  
+  // margin-left: 310px;
   min-height: 800px;
   overflow: hidden;
+  float: left;
 }
 
 .speakindex{
@@ -163,7 +165,7 @@ time{
   padding: 10px 10px 10px 10px;
   background-color: white;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 40px;
   height: 400px;
   float: left;
   overflow: hidden;
@@ -171,7 +173,7 @@ time{
 
 .speak-box{
   width: inherit;
-  height: 240px;
+  height: 230px;
   overflow: hidden;
   position: relative;
 }
@@ -183,8 +185,9 @@ time{
 }
 
 .speak-reply{
+  position: relative;
   width: 290px;
-  height: 150px;
+  height: 160px;
   overflow: hidden;
   font-size: 14px;
   color: #221f20;
@@ -231,12 +234,14 @@ time{
 }
 
 .speakindex_p{
-  line-height: 1.21;
+  line-height: 1.4;
   letter-spacing: 0.15em;
   width: 295px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 3;
   overflow: hidden;
   
   font-size: 14px;
@@ -249,15 +254,6 @@ time{
   min-height: 400px;
   margin: 0 auto;
   margin-top: 50px;
-}
-
-.myspeak{
-  position: fixed;
-  width: 20%;
-  background-color: white;
-  top: 50px;
-  left: 0;
-  bottom: 0;
 }
 
 .main_contents{
@@ -338,4 +334,119 @@ time{
   width: 20px;
   height: 20px;
   display: inline-block;
+  margin-top: 3px;
+  padding-top: 3px;
+}
+
+.small_trim-image-to-circle{
+    // position: absolute;
+    // top: 50px;
+    // left: 5px;
+    width:  30px;       /* ※縦横を同値に */
+    height: 30px;       /* ※縦横を同値に */
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    background-position: center center;  /* 横長画像の左上を基準に表示 */
+    display: inline-block;
+    padding-top: 0;
+    margin-top: 0;
+    background-size: cover;
+}
+
+.ad_user_retail{
+  font-size: 12px ;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-people{
+  line-height: 1;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.question_submit{
+  font-size: 12px ;
+}
+
+.speaktex{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  width: 295px;
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  overflow: hidden;
+  
+  font-size: 14px;
+  color: #221f20;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+}
+
+.myspeak{
+  // position: fixed;
+  width: 20%;
+  max-height: 2000px;
+  background-color: white;
+  float: left;
+  // top: 50px;
+  // left: 0;
+  // bottom: 0;
+}
+
+.follow-situation{
+ width: inherit;
+ height: 250px;
+ position: fixed;
+ margin: 0 auto;
+ text-align: center;
+ border-bottom: solid;
+ border-width: 1px;
+ border-color: #DDDDDD ;
+ white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.st-follow-situation{
+  width: inherit;
+ height: 290px;
+ position: fixed;
+ margin: 0 auto;
+ text-align: center;
+ border-bottom: solid;
+ border-width: 1px;
+ border-color: #DDDDDD ;
+ white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 500;
+  background-color: white;
+}
+
+.aside-trim-image{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; 
+  background-position: center center;
+  background-size: cover;
+  margin: 20px auto;
+}
+
+.follow-number{
+  width: 90px;
+  height: 50px;
+  display: inline-block;
+}
+
+.new-speak-index{
+  width: inherit;
+  height: inherit;
+}
+
+.ns-wrapper{
+  width: inherit;
+  height: 200px;
 }

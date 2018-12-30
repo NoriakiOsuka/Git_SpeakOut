@@ -7,7 +7,18 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.create(create_params)
+  end
   
+  def destroy
+    @comment = Comment.find(params[:id])
+     if ad_user_signed_in?
+        @comment.destroy  if current_ad_user.id == @comment.ad_user.id
+        redirect_to (speak_path(@comment.speak))
+     end
+     if st_user_signed_in?
+        @comment.destroy  if current_st_user.id == @comment.st_user.id
+        redirect_to (speak_path(@comment.speak))
+     end
   end
 
   private
