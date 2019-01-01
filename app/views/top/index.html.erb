@@ -1,11 +1,13 @@
 <!--<div class= "main_contents">-->
   <% if ad_user_signed_in? %>
-    <div class="index_wrapper">
-     <%= render partial: 'speaks/speak', collection: @speaks %>
-     </div>
-         <aside class="myspeak">
+    <aside class="myspeak">
             <div class="follow-situation">
+              <% if current_ad_user.image.attached? %>
               <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_ad_user.image) %>)"></p>
+              <% else %>
+              <div class="aside-trim-image"><%= image_tag('noimage.jpg') %></div>
+              <% end %>
+              <p style="letter-spacing: 0.3em">※評価者※</p>
               <div><%= current_ad_user.family_name %>&nbsp;<%= current_ad_user.first_name %></div>
               <div>ニックネーム：<%= current_ad_user.nickname %></div>
               <div>職業：<%= current_ad_user.occupation %></div>
@@ -20,13 +22,22 @@
               </div>
             </div>
             <div class="new-speak-index">
-             <!--<= render @new_speaks %>  -->
+               <p style="margin-bottom: 0px"><b>&nbsp;<新着情報></b></p>
+             <%= render partial: 'speaks/content', collection: @contents %>
             </div>
          </aside>
+    <div class="index_wrapper">
+     <%= render partial: 'speaks/speak', collection: @speaks %>
+     </div>
+         
    <% elsif st_user_signed_in? %>
      <aside class="myspeak">
            <div class="st-follow-situation">
+              <% if current_st_user.image.attached? %>
               <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_st_user.image) %>)"></p>
+              <% else %>
+              <div class="aside-trim-image"><%= image_tag('noimage.jpg') %></div>
+              <% end %>
               <div><%= current_st_user.family_name %>&nbsp;<%= current_st_user.first_name %></div>
               <div>ニックネーム：<%= current_st_user.nickname %></div>
               <div>学校：<%= current_st_user.school %></div>
@@ -49,7 +60,7 @@
               </div>
             </div>
             <div class="new-speak-index">
-              <p><新着情報></p>
+              <p style="margin-bottom: 0px"><b>&nbsp;<新着情報></b></p>
              <%= render partial: 'speaks/content', collection: @contents %>  
             </div>  
          </aside>
@@ -61,10 +72,10 @@
    <% else %>
    <div class="letslogin">
      <h1 class="login">ログインして始めましょう！</h1>
-      <p class="logintag"><%= link_to "生徒（投稿者）ログイン",new_st_user_session_path %></p>
-      <p class="logintag"><%= link_to "生徒（投稿者）新規登録",new_st_user_registration_path %></p>
-      <p class="logintag"><%= link_to "評価者ログイン",new_ad_user_session_path %></p>
-      <p class="logintag"><%= link_to "評価者新規登録",new_ad_user_registration_path %></p>
+      <p class="logintag"><%= link_to "☑️生徒（投稿者）ログイン",new_st_user_session_path %></p>
+      <p class="logintag"><%= link_to "☑️生徒（投稿者）新規登録",new_st_user_registration_path %></p>
+      <p class="logintag"><%= link_to "☑️評価者ログイン",new_ad_user_session_path %></p>
+      <p class="logintag"><%= link_to "☑️評価者新規登録",new_ad_user_registration_path %></p>
     <% end %>
    </div>
 <!--</div>-->

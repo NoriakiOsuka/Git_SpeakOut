@@ -11,6 +11,7 @@ class StUser < ApplicationRecord
   has_many :followers, through: :follower_relationships
   has_many :crossfollows, as: :followable, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments
   
   validates :first_name,:family_name,:first_name_kana,:family_name_kana,:school,:grade,:nickname,   presence: true
   

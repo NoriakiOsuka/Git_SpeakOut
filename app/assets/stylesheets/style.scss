@@ -30,6 +30,21 @@ time{
   color: #808080;
 }
 
+.btn{
+  width: 50px;
+  height: 30px;
+  font-size: 1.5em;
+}
+
+.btn-follow{
+  width: 90px;
+  height: 30px;
+  font-size: 0.8em;
+  background-color: navy;
+  color: white;
+  border-radius: 20px;
+}
+
 .clearfix:after{
   content:"";
   display:block;
@@ -121,9 +136,11 @@ time{
 
 .letslogin{
   width: 300px;
-  margin: 0 auto;
-  padding-top: 100px;
+  margin: 100px auto;
+  padding-top: 20px;
   line-height: 20px;
+  background-color: white;
+  text-align: center;
 }
 
 .login{
@@ -153,7 +170,7 @@ time{
   margin-top: 20px;
   padding-top: 0px;
   
-  // margin-left: 310px;
+  margin-left: 290px;
   min-height: 800px;
   overflow: hidden;
   float: left;
@@ -165,7 +182,7 @@ time{
   padding: 10px 10px 10px 10px;
   background-color: white;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 35px;
   height: 400px;
   float: left;
   overflow: hidden;
@@ -250,10 +267,13 @@ time{
 }
 
 .newspeak{
-  width: 400px;
+  width: 600px;
   min-height: 400px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 15px;
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .main_contents{
@@ -274,15 +294,40 @@ time{
 }
 
 .user-page{
+  width: 600px;
+  background-color: white;
   margin: 0 auto;
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.speak-histry{
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  margin: 30px auto;
+  padding-left: 10px;
+  // white-space: nowrap;
+  overflow: auto;
+  // text-overflow: ellipsis;
+  
+}
+
+.histry-name{
+  line-height: 40px;
+  padding-top: 8px;
+  margin-top: 5px;
 }
 
 .call-tex{
+  width: 600px;
+  height: 200px;
   margin: 0 auto;
-  text-align: center;
   margin-top: 50px;
+  overflow: auto;
+  background-color: white;
 }
 
 .alert {
@@ -299,10 +344,17 @@ time{
     margin: 0 auto;
   }
 
-.tablef{
+table {
   margin: 0 auto;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
+  background-color: white;
+}
+
+.fsb{
+  margin: 70px auto;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .linkmoji{
@@ -317,12 +369,12 @@ time{
 
 .col-lg-12{
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .iinebutton{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border: none;
 }
 
@@ -350,6 +402,18 @@ time{
     padding-top: 0;
     margin-top: 0;
     background-size: cover;
+}
+
+.histry_trim-image-to-circle{
+    width:  30px;       /* ※縦横を同値に */
+    height: 30px;       /* ※縦横を同値に */
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    background-position: center center;  /* 横長画像の左上を基準に表示 */
+    display: inline-block;
+    padding-top: 0;
+    margin-top: 15px;
+    background-size: cover;
+    float: left;
 }
 
 .ad_user_retail{
@@ -386,19 +450,20 @@ time{
 }
 
 .myspeak{
-  // position: fixed;
+  position: fixed;
   width: 20%;
   max-height: 2000px;
   background-color: white;
   float: left;
-  // top: 50px;
-  // left: 0;
-  // bottom: 0;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
 }
 
 .follow-situation{
  width: inherit;
- height: 250px;
+ height: 290px;
  position: fixed;
  margin: 0 auto;
  text-align: center;
@@ -408,6 +473,8 @@ time{
  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  z-index: 500;
+  background-color: white;
 }
 
 .st-follow-situation{
@@ -442,11 +509,161 @@ time{
 }
 
 .new-speak-index{
-  width: inherit;
-  height: inherit;
+  position: absolute;
+  top: 280px;
+  left: 0;
+  width: 100%;
+  overflow: auto;
 }
 
 .ns-wrapper{
+  position: relative;
   width: inherit;
-  height: 200px;
+  padding-left: 10px;
+  height: 209px;
+  overflow: hidden;
+  border-bottom: solid;
+ border-width: 1px;
+ border-color: #DDDDDD ;
+}
+
+.side-trim-image{
+    width:  30px;       
+    height: 30px;     
+    border-radius: 50%;  
+    background-position: center center;  
+    display: inline-block;
+    padding-top: 0;
+    margin-top: 7px;
+    margin-bottom: 0;
+    background-size: cover;
+}
+
+.side-speak{
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.side-speak-text{
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.contents-to-top{
+  background-color: white;
+  width: 300px;
+  height: 100px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 30px,10px,10px,10px;
+}
+
+.profile-form{
+  background-color: white;
+  width: 300px;
+  margin: 80px auto;
+  font-size: 14px;
+  padding-left: 30px;
+  line-height: 1.97;
+}
+
+.form-group{
+  width: 600px;
+  height: 350px;
+  margin: 0 auto;
+  font-size: 14px;
+  background-color: white;
+  overflow: auto;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.form-control{
+  font-size: 14px;
+}
+
+.comment-text{
+  // display: -webkit-box;
+  //   -webkit-box-orient: vertical;
+  //   -webkit-line-clamp: 4;
+  overflow: auto;
+}
+
+.field-top-case{
+  margin-top: 20px;
+}
+
+.top-case{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.commentbtn{
+  width: 80px;
+  height: 100px;
+  font-size: 1.3em;
+  padding: 15px 15px;
+}
+
+.selectb{
+  height: 30px;
+  width: 40px;
+  // border: solid;
+  // border: 2px;
+  // border-color: black;
+  font-size: 14px;
+  background-color: white;
+}
+
+.select-f{
+  height: 25px;
+  width: 150px;
+  // border: solid;
+  // border: 2px;
+  // border-color: black;
+  font-size: 14px;
+  background-color: white;
+}
+
+.sub{
+ font-size: 14px;
+ height: 30px;
+ width: 250px;
+ overflow: auto;
+}
+
+.tarea{
+  border: solid;
+  border-color: silver;
+  border-width: 1px;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.show-speak{
+  margin-top: 50px;
+}
+
+.col-lg-15{
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  overflow: auto;
+}
+
+.speak-comment-index-detail{
+  border-bottom: solid;
+  border-width: 1px;
+ border-color: #DDDDDD ;
+ margin-top: 10px;
 }

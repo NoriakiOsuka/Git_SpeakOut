@@ -1,4 +1,4 @@
-<h3 class="call-tex"><span>本文：<br></span><%= @speak.text %></h3>
+<h3 class="call-tex"><div class="top-case">本文：</div><div class="top-case"><%= @speak.text %></div></h3>
 <div class="row form">
   <div class="col-lg-12">
     <%= form_for(@comment) do |f| %>
@@ -12,13 +12,15 @@
        <% end %>
       
       <div class="form-group">
-        <%= f.text_area :text, placeholder: "回答を入力してください", cols:"30", rows:"10", autofocus:"true", class:"form-control" %>
-        <%= f.text_field :log_grade, placeholder: "わかりやすさ（論理的思考）" %>
-        <%= f.text_field :exp_grade, placeholder: "表現力" %>
-        <%= f.text_field :cre_grade, placeholder: "おもしろさ（独創性）" %>
-      </div>
+        <%= f.text_area :text, placeholder: "コメントを入力してください", cols:"79", rows:"10", autofocus:"true", class:"form-control" %><br>
+        &nbsp;5点満点で入力<br>
+        <%= f.select :log_grade, [["",""],[5,5],[4,4],[3,3],[2,2],[1,1]],{}, { autofocus: 'true', class: 'selectb'} %>&nbsp;&nbsp;わかりやすさ、論理力<br>
+        <%= f.select :exp_grade, [["",""],[5,5],[4,4],[3,3],[2,2],[1,1]],{}, placeholder: "表現力",class:"selectb" %>&nbsp;&nbsp;表現力<br>
+        <%= f.select :cre_grade, [["",""],[5,5],[4,4],[3,3],[2,2],[1,1]],{}, placeholder: "おもしろさ（独創性）",class:"selectb" %>&nbsp;&nbsp;面白さ、独創性<br><br>
+      
       <%= f.hidden_field :speak_id %>
-      <%= f.submit "回答する", class:"btn btn-primary withripple"%>
+      <%= f.submit "送信する", class:"commentbtn"%>
+      </div>
     <% end %>
   </div>
 </div>

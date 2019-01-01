@@ -1,7 +1,8 @@
+<p class="fsb"><フォロワー></p>
 <% @st_user.followers.each do |st_user| %>
 <table>
 <tr>
-  <td>  <%= st_user.nickname %> </td>
+  <td>  ニックネーム：　<%= st_user.nickname %> &nbsp;&nbsp;</td>
   <td><%= link_to '詳細', st_user_path(st_user) %></td>
 </tr>
 

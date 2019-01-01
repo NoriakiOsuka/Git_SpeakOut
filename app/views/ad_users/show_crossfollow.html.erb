@@ -1,7 +1,8 @@
+<p class="fsb">フォロー</p>
 <% @crossfollows.each do |crossfollow| %>
 <table>
 <tr>
-  <td>  <%= StUser.find(crossfollow.st_user_id).nickname %> </td>
+  <td>  ニックネーム：　<%= StUser.find(crossfollow.st_user_id).nickname %> &nbsp;&nbsp;</td>
   <td><%= link_to '詳細', st_user_path(StUser.find(crossfollow.st_user_id)) %></td>
 </tr>
 

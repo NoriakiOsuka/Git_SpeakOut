@@ -1,8 +1,8 @@
 <div class="user-page">
   
-  <p><%= @ad_user.nickname %>さんのユーザーページです。</p>
-  <h2><%= @ad_user.name %><span><%= @ad_user.name_kana %></span></h2>
-  
+  <p><br><%= @ad_user.nickname %>さんのユーザーページです。</p>
+  <h2><%= @ad_user.name %><span> (<%= @ad_user.name_kana %>)</span></h2>
+  <h2><%= @ad_user.occupation %><span> <%= @ad_user.position %></span></h2>
    <% if @ad_user.image.attached? %>
      <div class="image" style="background-image: url(<%= rails_blob_path(@ad_user.image) %>)"></div>
   　
@@ -22,3 +22,29 @@
 　 <%= render 'crossstats' %>
 　 
 </div>
+
+<div>
+ <% if @ad_user.comments.present? %>
+ <div style="text-align: center"><b><過去のコメント・評価></b></div>
+ <% @ad_user.comments.order('created_at DESC').each do |comment| %>
+    <div class="speak-histry">
+     <% if comment.speak.st_user.image.attached? %>
+      <div class="histry_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.speak.st_user.image) %>)"></div>
+     <% end %> 
+      <div class="histry-name">&nbsp;&nbsp;投稿者：<%= comment.speak.st_user.nickname %></div>
+      <div><分野>：<%= comment.speak.field %>&nbsp;&nbsp;&nbsp;<題名>：<%= comment.speak.subject %></div>
+      <div class="comment-text"><投稿文>: <br><%= comment.speak.text %><br><br></div>
+      <div class="comment-text"><コメント>: <br><%= comment.text %><br><br></div>
+      <% if ad_user_signed_in? %>
+       <% if @ad_user.id == current_ad_user.id %>
+         <div>論理：<%= comment.log_grade %>点 表現：<%= comment.exp_grade %>点 発想：<%= comment.cre_grade %>点</div>
+       <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div> 
+<% end %> 
+ 
+ 
+ 
+

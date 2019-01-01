@@ -16,10 +16,12 @@
           <% end %>
          </ul>
        <% end %>
-      <%= f.select :field,[["",""],["今週のテーマ","今週のテーマ"],["学校・地域","学校・地域"],["趣味","趣味"],["勉強","勉強"],["読書","読書"],["フリー","フリー"]], placeholder: "選択してください" %>
-      <%= f.text_field :subject ,maxlength:20, placeholder: "題名を記入してください" %>
-      <%= f.text_area :text ,maxlength:1500, placeholder: "本文",:style=>"width:400px; min-height: 400px; top: 0;" %>
-      <%= f.submit "投稿する" %>
+      分野を入力してください<br> 
+      <%= f.select :field,[["",""],["今週のテーマ","今週のテーマ"],["学校・地域","学校・地域"],["趣味","趣味"],["勉強","勉強"],["読書","読書"],["フリー","フリー"]],{}, placeholder: "選択してください",class:"select-f" %><br>
+      題名を入力してください<br>
+      <%= f.text_field :subject ,maxlength:20, placeholder: "題名を記入してください",class:"sub" %><br><br>
+      <%= f.text_area :text ,maxlength:1500, placeholder: "本文",:style=>"width:580px; min-height: 400px; top: 0;",class:"tarea" %>
+      <%= f.submit "投稿する", class:"commentbtn" %><br><br>
     </div>
     <% end %>
   </div>

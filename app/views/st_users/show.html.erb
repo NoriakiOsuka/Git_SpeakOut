@@ -1,8 +1,8 @@
 <div class="user-page">
 
   <p><%= @st_user.nickname %>さんのユーザーページです。</p>
-  <h2><%= @st_user.name %><span><%= @st_user.name_kana %></span></h2>
- 
+  <h2><%= @st_user.name %><span> (<%= @st_user.name_kana %>)</span></h2>
+  <h2><%= @st_user.school %><span>  <%= @st_user.grade %></span></h2>
    <% if @st_user.image.attached? %>
      <div class="image" style="background-image: url(<%= rails_blob_path(@st_user.image) %>)"></div>
   　
@@ -21,4 +21,62 @@
      　 <%= render 'stats' %>
      　 <%= render 'crossfollow_form' %>
      　 <%= render 'crossstats' %>
+</div>
+
+<div>
+
+  <div style="text-align: center"><b><過去の投稿></b></div>
+  <% if @st_user.speaks.present? %>
+   <% @st_user.speaks.order('created_at DESC').each do |speak| %>
+     <div class="speak-histry">
+       <div class="field-top-case"><分野>：<%= speak.field %>&nbsp;&nbsp;&nbsp;<題名>：<%= speak.subject %></div>
+       <div class="comment-text"><投稿文>: <br><%= speak.text %><br><br></div>
+       
+         <% if speak.comments.present? %>
+         <% speak.comments.order('created_at DESC').each do |comment| %>
+             <% if comment.ad_user_id.present? %>
+               <% if comment.ad_user.image.attached? %>
+               <div class="histry_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.ad_user.image) %>)"></div>
+               <% end %>
+               <div class="histry-name">&nbsp;&nbsp;評価者：<%= comment.ad_user.nickname %></div>
+             　<div class="comment-text"><コメント>: <br><%= comment.text %><br><br></div>
+             <% end %>
+             <% if comment.st_user_id.present? %>
+               <% if comment.st_user.image.attached? %>
+               <div class="histry_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.st_user.image) %>)"></div>
+               <% end %>
+               <div class="histry-name">&nbsp;&nbsp;コメント者：<%= comment.st_user.nickname %></div>
+             　<div class="comment-text"><コメント>: <br><%= comment.text %><br><br></div>
+                 <% if st_user_signed_in? %>
+               　　<% if @st_user.id == current_st_user.id %>
+              　　　　<div>論理：<%= comment.log_grade %>点 表現：<%= comment.exp_grade %>点 発想：<%= comment.cre_grade %>点</div>
+               　　<% end %>
+                 <% end %>
+             <% end %>
+         <% end %>
+         <% end %>
+      
+     
+  　</div> 
+   <% end %>
+   <% end %>　
+  
+  
+ <div style="text-align: center"><b><過去のコメント></b></div>
+ <% if @st_user.comments.present? %>
+ <% @st_user.comments.order('created_at DESC').each do |comment| %>
+    <div class="speak-histry">
+      <div class="histry_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.speak.st_user.image) %>)"></div>
+      <div class="histry-name">&nbsp;&nbsp;投稿者：<%= comment.speak.st_user.nickname %></div>
+      <div><分野>：<%= comment.speak.field %>&nbsp;&nbsp;&nbsp;<題名>：<%= comment.speak.subject %></div>
+      <div class="comment-text"><投稿文>: <br><%= comment.speak.text %><br><br></div>
+      <div class="comment-text"><コメント>: <br><%= comment.text %><br><br></div>
+      
+    </div>
+  <% end %>
+  <% end %>
+ 
+ 
+
+
 </div>

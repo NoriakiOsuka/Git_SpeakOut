@@ -1,7 +1,8 @@
+<p class="fsb"><フォロー></p>
 <% @st_user.followings.each do |st_user| %>
 <table class="tablef">
 <tr>
-  <td>  <%= st_user.nickname %>  </td>
+  <td>  ニックネーム：　<%= st_user.nickname %> &nbsp;&nbsp; </td>
   <td class="followimage" style="background-image: url(<%= rails_blob_path(st_user.image) %>)"></td>
   <td><%= link_to '    →詳細', st_user_path(st_user) %></td>
 </tr>
