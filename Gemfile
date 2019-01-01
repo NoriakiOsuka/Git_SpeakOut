@@ -74,3 +74,6 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'mini_magick'
 gem 'counter_culture', '~> 1.8'
+group :production do
+  gem 'rails_12factor'
+end
