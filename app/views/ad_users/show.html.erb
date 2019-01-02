@@ -1,6 +1,6 @@
 <div class="user-page">
   
-  <p><br><%= @ad_user.nickname %>さんのユーザーページです。</p>
+  <p><br>評価者：<%= @ad_user.nickname %>さんのユーザーページです。</p>
   <h2><%= @ad_user.name %><span> (<%= @ad_user.name_kana %>)</span></h2>
   <h2><%= @ad_user.occupation %><span> <%= @ad_user.position %></span></h2>
    <% if @ad_user.image.attached? %>
