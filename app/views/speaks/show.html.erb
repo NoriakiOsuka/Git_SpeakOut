@@ -1,5 +1,9 @@
 <div class="show-speak">
+  <% if @speak.st_user.image.attached? %>
   <a href="/st_users/<%= "#{@speak.st_user.id}" %>"><p class="image" style="background-image: url(<%= rails_blob_path(@speak.st_user.image) %>)"></p></a>
+  <% else %>
+  <a href="/st_users/<%= "#{@speak.st_user.id}" %>"><div class="image"><%= image_tag('noimage.jpg', size: "120x120" ) %></div></a>
+  <% end %>
   <div class="col-lg-15">
     <h3><span><投稿></span><br>ニックネーム&ensp;　：<%= @speak.st_user.nickname %><br>
     分野&emsp; &emsp; &emsp; &emsp; ：<%= @speak.field %><br>題名&emsp; &emsp; &emsp; &emsp; ：<%= @speak.subject %><br>本文<br><%= @speak.text %></h3>
