@@ -40,6 +40,11 @@
                <% end %>
                <div class="histry-name">&nbsp;&nbsp;評価者：<%= comment.ad_user.nickname %></div>
              　<div class="comment-text"><コメント>: <br><%= comment.text %><br><br></div>
+    <% if st_user_signed_in? %>
+       <% if current_st_user.id == comment.speak.st_user_id %>
+        　　<div>論理：<%= comment.log_grade %>点 表現：<%= comment.exp_grade %>点 発想：<%= comment.cre_grade %>点</div>
+       <% end %>
+    <% end %>
              <% end %>
              <% if comment.st_user_id.present? %>
                <% if comment.st_user.image.attached? %>
