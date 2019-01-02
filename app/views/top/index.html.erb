@@ -5,7 +5,7 @@
               <% if current_ad_user.image.attached? %>
               <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_ad_user.image) %>)"></p>
               <% else %>
-              <div class="aside-trim-image"><%= image_tag('noimage.jpg') %></div>
+              <div class="aside-trim-image"><%= image_tag('noimage.jpg',class: "aside-trim-image") %></div>
               <% end %>
               <p style="letter-spacing: 0.3em">※評価者※</p>
               <div><%= current_ad_user.family_name %>&nbsp;<%= current_ad_user.first_name %></div>
@@ -36,7 +36,7 @@
               <% if current_st_user.image.attached? %>
               <p class="aside-trim-image" style="background-image: url(<%= rails_blob_path(current_st_user.image) %>)"></p>
               <% else %>
-              <div class="aside-trim-image"><%= image_tag('noimage.jpg') %></div>
+              <div class="aside-trim-image"><%= image_tag('noimage.jpg',class: "aside-trim-image") %></div>
               <% end %>
               <div><%= current_st_user.family_name %>&nbsp;<%= current_st_user.first_name %></div>
               <div>ニックネーム：<%= current_st_user.nickname %></div>
