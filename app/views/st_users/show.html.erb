@@ -71,7 +71,9 @@
  <% if @st_user.comments.present? %>
  <% @st_user.comments.order('created_at DESC').each do |comment| %>
     <div class="speak-histry">
+      <% if comment.speak.st_user.image.attached? %>
       <div class="histry_trim-image-to-circle" style="background-image: url(<%= rails_blob_path(comment.speak.st_user.image) %>)"></div>
+      <% end %>
       <div class="histry-name">&nbsp;&nbsp;投稿者：<%= comment.speak.st_user.nickname %></div>
       <div><分野>：<%= comment.speak.field %>&nbsp;&nbsp;&nbsp;<題名>：<%= comment.speak.subject %></div>
       <div class="comment-text"><投稿文>: <br><%= comment.speak.text %><br><br></div>

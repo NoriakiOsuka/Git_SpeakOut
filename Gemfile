@@ -77,3 +77,4 @@ gem 'counter_culture', '~> 1.8'
 group :production do
   gem 'rails_12factor'
 end
+gem "aws-sdk-s3", require: false
